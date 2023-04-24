@@ -1,0 +1,25 @@
+def read(filename_list,word):
+    word_dict={}
+    word.lower()
+    for i in filename_list:
+        with open(i,'r')as f:
+            for line in f:
+                line =line.split()
+                for k in line:
+                    t=k.lower()
+                    if t in word_dict:
+                        word_dict[t]=word_dict[t]+"   "+i
+                    else:
+                        word_dict[t]=i
+    if word in word_dict:
+        return word_dict[word]
+    else:
+        return -1
+
+s=input("please input a keysowrd:")
+file_list=["E:\\Tencent\\d1.txt","E:\\Tencent\\d2.txt","E:\\Tencent\\d3.txt"]#absolute path
+k=read(file_list,s)
+if k==-1:
+    print("未找到！")
+else:
+    print(k)
